@@ -1,0 +1,172 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  min-height: 100%;
+  height: 100%;
+  width: 100%;
+  position: relative;
+
+  font-size: 16px;
+  font-family: sans-serif;
+}
+
+ul {
+  list-style-type: none;
+}
+
+i {
+  width: 16px;
+}
+
+/*
+############### ANIMATION #################
+*/
+
+.admin__sidepanel ul li {
+  transition: background .3s ease-in-out;
+}
+
+/*
+############### FLEX #################
+*/
+
+.flex,
+.flex--center,
+.admin__sidepanel ul li {
+  display: flex;
+  display: -webkit-flex;
+}
+
+.flex--center, .admin__sidepanel ul li {
+  align-items: center;
+  -webkit-align-items: center;
+}
+
+/*
+################ STATUSBAR ##############
+*/
+
+.admin__statusbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  width: 100%;
+  height: 60px;
+  padding: 0 25px;
+  background: rgb(60, 55, 53);
+}
+
+.admin__statusbar span {
+  font-weight: lighter;
+  color: lightgrey;
+}
+
+.admin__statusbar span i {
+  margin-right: 1em;
+}
+
+.admin__statusbar #username {
+  margin-left: auto;
+}
+
+/*
+##################### SIDEPANEL ################
+*/
+
+.admin__sidepanel {
+  position: fixed;
+  top: 60px;
+  left: 0;
+  z-index: 999;
+  width: 200px;
+  height: 100%;
+  padding: 25px 0;
+  background: rgb(33 37 41);
+}
+
+.admin__sidepanel ul li a {
+  width: 100%;
+  /* height: 70px; */
+  padding-left: 25px;
+  font-size: 1em;
+  font-weight: lighter;
+  color: lightgrey;
+  padding: 20px 20px;
+  text-decoration: auto;
+}
+
+.admin__sidepanel ul li:hover {
+  background: #666;
+  cursor: pointer;
+}
+
+.admin__sidepanel ul li i {
+  margin-right: 1em;
+}
+
+/*
+##################### MAIN ################
+*/
+
+.admin__main {
+  /* position: relative; */
+  top: 55px;
+  left: 220px;
+  /* width: 1040px; */
+  /* height: 100%; */
+  height: inherit;
+  padding: 2em;
+  background: white;
+  text-align: center;
+  margin-top: 61px;
+  text-align: left;
+  margin-left: 200px;
+}
+
+.admin__main h1 {
+  font-weight: lighter;
+  font-size: 3em;
+}
+
+.admin__sidepanel ul {
+  padding: 0;
+}
+
+.active-admin-nav a {
+  background-color: #3f51b5;
+  color: white!important;
+  font-weight: bold !important;
+}
+.active-admin-nav a:hover {
+  background-color: #3f51b5;
+  color: white!important;
+  font-weight: bold !important;
+}
+.top-nav-logo {
+  width: 95px;
+  margin-top: -10px;
+  margin-bottom: -11px;
+
+}
+
+.text-right {
+  text-align: right !important;
+}
+.hide-overflow {  
+  height: 65px;
+  overflow: hidden;
+}
+.show-options {
+  color: #0027ff;
+  text-decoration: underline;
+  cursor: pointer;
+}
