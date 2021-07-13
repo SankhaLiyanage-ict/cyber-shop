@@ -12,7 +12,7 @@ $mailer = new Swift_Mailer($transport);
 
 function sendVerificationEmail($userEmail, $token)
 {
-  $actual_link = str_replace('signup.php', 'verify-account.php', "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]");
+  $actual_link = str_replace('signup.php', 'verify-account.php', "https://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]");
 
   global $mailer;
   $body = '<!DOCTYPE html>

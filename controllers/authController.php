@@ -74,14 +74,16 @@ if (isset($_POST['signup-btn'])) {
     }
 
     if (count($errors) === 0) {
-
         $sql = "INSERT INTO users (firstName, lastName, email, password, role, status, verified, delivery_address, mobile_no, postal_code, token ) 
                 VALUES ('$firstname','$secondname','$email','$password','$role',$status, $verified, '-', '-', '-', '$token')";
 
         if ($conn->query($sql) == TRUE) {
 
             // TO DO: send verification email to user
-            sendVerificationEmail($email, $token);
+            $host_url = "http://g10-allocation-system.000webhostapp.com/sendMail.php?email=$email&token=$token";        
+            $response = file_get_contents($host_url);
+
+            //sendVerificationEmail($email, $token);
             $_SESSION['tmp_email'] = $email;
 
             header('location: verify-account.php');
@@ -143,7 +145,7 @@ if (isset($_POST['login-btn'])) {
                             if ($user['role'] == 'ROLE_ADMIN') {
                                 header('location: admin/index.php');
                             } else {
-                                header('location: ../index.php');
+                                header('location: index.php');
                             }
                         }
                     } else {
@@ -206,7 +208,11 @@ if (isset($_POST['reset-btn'])) {
         $query = "UPDATE users SET token='$token' WHERE email='$email'";
 
         if (mysqli_query($conn, $query)) {
-            sendResetEmail($email, $token);
+
+            //sendResetEmail($email, $token);
+            $host_url = "http://g10-allocation-system.000webhostapp.com/sendMail.php?email=$email&token=$token&pwd_reset=1";        
+            $response = file_get_contents($host_url);
+
             $_SESSION['reset_link_send'] = 1;
             header('location: fogot-password.php');
         }

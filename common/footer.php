@@ -22,9 +22,9 @@
         </div>
         <div class="column">
             <a class="footer_title">GET IN TOUCH</a>
-            <a title="Address"><i class="fa fa-map-marker"></i> 007, street, province/state, country - zipcode</a>
-            <a href="emailto:" title="Email"><i class="fa fa-envelope"></i> email@serviceprovider.domain</a>
-            <a href="tel:" title="Contact"><i class="fa fa-phone"></i> +(x)-xxxx-xxxxx</a>
+            <a title="Address"><i class="fa fa-map-marker"></i> 137/A, Maligawatta Rd, Colombo, Sri Lanka</a>
+            <a href="emailto:" title="Email"><i class="fa fa-envelope"></i> cybershopg5@gmail.com</a>
+            <a href="tel:" title="Contact"><i class="fa fa-phone"></i> +(94)-7509-46632</a>
         </div>
         <div class="column">
 

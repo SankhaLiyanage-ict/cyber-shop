@@ -4,11 +4,14 @@ include 'controllers/sendEmails.php';
 
 if (isset($_POST['contact_frm'])) {
 
-    $customerName = $_POST['customerName'];
-    $message = $_POST['message'];
+    $customerName = str_replace(' ','*',$_POST['name']);
+    $message = str_replace(' ','*',$_POST['message']);
     $email = $_POST['email'];
 
-    sendContactUsMail($customerName, $message, $email);
+    //sendContactUsMail($customerName, $message, $email);
+    $host_url = "http://g10-allocation-system.000webhostapp.com/sendMail.php?name=$customerName&email=$email&message=$message";        
+    $response = file_get_contents($host_url);
+
     $_SESSION['message_send'] = 1;
 
     header('Location: contact-us.php');
@@ -61,8 +64,8 @@ include 'common/header.php';
                     <div class="row form-group">
                         <label for="email" class="col-form-label col-md-3">E-mail</label>
                         <div class="col-md-9">
-                            <input type="hidden" name="email" id="email" class="form-control" value="<?php echo $userEmail ?>">
-                            <input type="email" class="form-control " disabled value="<?php echo $userEmail ?>" required>
+                            <input type="email" name="email" id="email" class="form-control" value="<?php echo $userEmail ?>">
+                            <!-- <input type="email" class="form-control " disabled value="" required> -->
                         </div>
                     </div>
                     <div class="row form-group">

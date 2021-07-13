@@ -1,7 +1,7 @@
 <?php
 
 include '../common/adminHeader.php';
-
+exit();
 $ord_status = 0;
 $payment_type = 0;
 $dates = '';

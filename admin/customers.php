@@ -1,6 +1,6 @@
 <?php
 include '../common/adminHeader.php';
-
+exit();
 $userQuery = "SELECT * from users WHERE role = 'ROLE_USER' AND status=1";
 $userQueryResult = mysqli_query($conn, $userQuery);
 $Users = [];

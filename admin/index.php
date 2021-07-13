@@ -1,6 +1,6 @@
 <?php
 include '../common/adminHeader.php';
-
+exit();
 $ProductsQuery = "SELECT * FROM products";
 $ProductsData = mysqli_query($conn, $ProductsQuery);
 $Products = mysqli_fetch_array($ProductsData);

@@ -42,7 +42,7 @@ include 'common/header.php';
             <input type="password" id="password1" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" name="password" title="Password must contain at least 6 characters, including UPPER/lowercase and numbers" class="form-control form-control-lg" onchange="this.setCustomValidity(this.validity.patternMismatch ? this.title : ''); if(this.checkValidity()) form.pwd2.pattern = RegExp.escape(this.value);">
           </div>
           <div class="form-group mb-10">
-            <label>Password Confirm</label>
+            <label>Confirm Password</label>
             <input type="password" id="password2" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" name="passwordConf" title="Password must contain at least 6 characters, including UPPER/lowercase and numbers" class="form-control form-control-lg" onchange="this.setCustomValidity(this.validity.patternMismatch ? this.title : '');">
             <span id="password-validation"></span>
           </div>

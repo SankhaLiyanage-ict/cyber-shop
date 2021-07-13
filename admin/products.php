@@ -64,7 +64,7 @@ if ($result) {
     Products
 </h3>
 <br>
-<form action="" method="GET" id="searchForm">
+<!-- <form action="" method="GET" id="searchForm">
 
     <div class="col-md-12">
         <div class="row">
@@ -98,7 +98,7 @@ if ($result) {
 
         </div>
     </div>
-</form>
+</form> -->
 <br>
 <table class="table table-striped table-bordered">
     <thead>
@@ -173,17 +173,17 @@ if ($result) {
                             ?>
                         </select>
                         <br>
-                        <label for="prod_description" class="form-label">Product Description</label>
-                        <textarea name="prod_description" class="form-control" id="prod_description" rows="10" required></textarea>
+                        <label for="prod_description" class="form-label">Product Description (600)</label>
+                        <textarea name="prod_description" maxlength="600" class="form-control" id="prod_description" rows="10" required></textarea>
                         <br>
                         <label for="prod_image" class="form-label">Product Image</label>
                         <input type="file" name="prod_image" class="form-control" id="prod_image" accept="image/png, image/gif, image/jpeg" required></input>
                         <br>
                         <label for="prod_price" class="form-label">Product Price</label>
-                        <input type="text" name="prod_price" class="form-control" id="prod_price" required></input>
+                        <input type="text" maxlength="6" name="prod_price" class="form-control" id="prod_price" required></input>
                         <br>
                         <label for="prod_qty" class="form-label">Product Stock</label>
-                        <input type="text" name="prod_qty" class="form-control" id="prod_qty" required></input>
+                        <input type="text" maxlength="3" name="prod_qty" class="form-control" id="prod_qty" required></input>
                     </div>
                 </div>
                 <div class="modal-footer">

@@ -143,7 +143,7 @@ foreach ($Users as $user) {
                             <input type="text" class="form-control" id="mobile_no_<?php echo $user['id']; ?>" name="mobile_no" value="<?php echo $user['mobile_no']; ?>" required>
                         </div>
                         <div class="mb-3">
-                            <label for="delivery_address_<?php echo $user['id']; ?>" class="form-label">Delivery Address</label>
+                            <label for="delivery_address_<?php echo $user['id']; ?>" class="form-label">Address</label>
                             <textarea class="form-control" id="delivery_address_<?php echo $user['id']; ?>" rows="3" name="delivery_address"><?php echo $user['delivery_address']; ?></textarea>
                         </div>
                     </div>
