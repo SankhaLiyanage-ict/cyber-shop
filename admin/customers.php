@@ -1,6 +1,5 @@
 <?php
 include '../common/adminHeader.php';
-exit();
 $userQuery = "SELECT * from users WHERE role = 'ROLE_USER' AND status=1";
 $userQueryResult = mysqli_query($conn, $userQuery);
 $Users = [];
@@ -23,6 +22,7 @@ while ($usersData = mysqli_fetch_array($userQueryResult)) {
     Customers
 </h3>
 <br>
+<?php exit(); ?>
 <table class="table table-bordered">
     <thead>
         <tr class="text-center">

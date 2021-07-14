@@ -81,6 +81,8 @@ if (isset($_POST['signup-btn'])) {
 
             // TO DO: send verification email to user
             $host_url = "http://g10-allocation-system.000webhostapp.com/sendMail.php?email=$email&token=$token";        
+            //$host_url = "https://esystems.space/sendMail.php?email=$email&token=$token";        
+            
             $response = file_get_contents($host_url);
 
             //sendVerificationEmail($email, $token);
@@ -211,6 +213,7 @@ if (isset($_POST['reset-btn'])) {
 
             //sendResetEmail($email, $token);
             $host_url = "http://g10-allocation-system.000webhostapp.com/sendMail.php?email=$email&token=$token&pwd_reset=1";        
+           //$host_url = "http://esystems.space/sendMail.php?email=$email&token=$token&pwd_reset=1";        
             $response = file_get_contents($host_url);
 
             $_SESSION['reset_link_send'] = 1;

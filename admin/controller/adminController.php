@@ -103,6 +103,7 @@ if (isset($_POST['create-product'])) {
         exit();
     }
     header('Location: ../products.php');
+    exit();
 }
 
 // Edit Product
@@ -148,6 +149,29 @@ if (isset($_POST['edit-product'])) {
     }
 
     header('Location: ../products.php');
+    exit();
+}
+
+
+// Remove Product 
+
+if (isset($_POST['removeProduct'])) {
+    $pid = $_POST['pid'];
+    $sql1 = "DELETE FROM cart WHERE product_id = $pid";
+    $sql2 = "DELETE FROM products WHERE id = $pid";
+
+    if ($conn->query($sql1) == FALSE) {
+        echo "Error" . $sql . $conn->error;
+        exit();
+    }
+
+    if ($conn->query($sql2) == FALSE) {
+        echo "Error" . $sql . $conn->error;
+        exit();
+    }
+
+    echo 1;
+    exit();
 }
 
 
@@ -191,10 +215,6 @@ if (isset($_POST['remove-user'])) {
 
 if (isset($_POST['create_new_admin'])) {
     $errors = [];
-
-    // echo '<pre>';
-    // print_r($_POST);
-    // exit();
 
     if (empty($_POST['first_name'])) {
         $errors['first_name'] = 'First Name is required';

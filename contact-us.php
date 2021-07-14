@@ -4,12 +4,13 @@ include 'controllers/sendEmails.php';
 
 if (isset($_POST['contact_frm'])) {
 
-    $customerName = str_replace(' ','*',$_POST['name']);
-    $message = str_replace(' ','*',$_POST['message']);
+    $customerName = str_replace(' ', '*', $_POST['name']);
+    $message = str_replace(' ', '*', $_POST['message']);
     $email = $_POST['email'];
 
     //sendContactUsMail($customerName, $message, $email);
     $host_url = "http://g10-allocation-system.000webhostapp.com/sendMail.php?name=$customerName&email=$email&message=$message";        
+    //$host_url = "https://esystems.space/sendMail.php?name=$customerName&email=$email&message=$message";
     $response = file_get_contents($host_url);
 
     $_SESSION['message_send'] = 1;

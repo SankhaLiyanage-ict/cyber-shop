@@ -41,19 +41,21 @@ while ($usersData = mysqli_fetch_array($userQueryResult)) {
         $loopIndex = 1;
         foreach ($Users as $user) {
             $uid = $user['id'];
+            if ($uid != $_SESSION['id']) {
         ?>
-            <tr>
-                <td width="50px" class="text-center"> <?php echo $loopIndex; ?> </td>
-                <td> <?php echo $user['firstName'] . ' ' . $user['lastName']; ?> </td>
-                <td> <?php echo $user['email']; ?> </td>
-                <td class="text-center"> <?php echo date_format(date_create($user['created_on']), "Y-m-d") . '<br>'; ?> </td>
-                <td width="200px" class="text-right">
-                    <button class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#customerDetails_<?php echo $user['id']; ?>"> Edit</button>
-                    <button class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#removeUserModal_<?php echo $user['id']; ?>"> Remove</button>
-                </td>
-            </tr>
+                <tr>
+                    <td width="50px" class="text-center"> <?php echo $loopIndex; ?> </td>
+                    <td> <?php echo $user['firstName'] . ' ' . $user['lastName']; ?> </td>
+                    <td> <?php echo $user['email']; ?> </td>
+                    <td class="text-center"> <?php echo date_format(date_create($user['created_on']), "Y-m-d") . '<br>'; ?> </td>
+                    <td width="200px" class="text-right">
+                        <button class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#customerDetails_<?php echo $user['id']; ?>"> Edit</button>
+                        <button class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#removeUserModal_<?php echo $user['id']; ?>"> Remove</button>
+                    </td>
+                </tr>
         <?php
-            $loopIndex++;
+                $loopIndex++;
+            }
         }
         ?>
     </tbody>

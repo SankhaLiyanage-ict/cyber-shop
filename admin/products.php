@@ -139,7 +139,7 @@ if ($result) {
                 <td width="150px" class="text-right">
                     <input type="hidden" value="<?php echo $prod['qty'] ?>" class="product-qty">
                     <button class="btn btn-secondary btn-sm edit-product" data-id="<?php echo $prod['id']; ?>"> Edit</button>
-                    <button class="btn btn-danger btn-sm remove-modal" data-id="<?php echo $prod['id']; ?>"> Remove</button>
+                    <button class="btn btn-danger btn-sm remove-product" data-id="<?php echo $prod['id']; ?>"> Remove</button>
                 </td>
             </tr>
         <?php
@@ -252,6 +252,28 @@ if ($result) {
 </div>
 
 <script>
+    //restrict upload file type
+    $('INPUT[type="file"]').change(function() {
+        var ext = this.value.match(/\.(.+)$/)[1];
+        switch (ext) {
+            case 'jpg':
+            case 'jpeg':
+            case 'png':
+                $('#uploadButton').attr('disabled', false);
+                break;
+            default:
+                alert('Only image file type please!!');
+                this.value = '';
+        }
+
+        // hope restrict file size in 1 MB
+        if (this.size > 1024) {
+            alert("Upload Image size must be ");
+            this.value = '';
+        }
+
+    });
+
     $("#createProduct").click(function() {
         $("#addProductMondal").modal('show');
     });
@@ -264,6 +286,20 @@ if ($result) {
     $(".show-less").click(function() {
         $(this).parent().parent().find('div').addClass('hide-overflow');
         $(".show-more").show();
+    });
+
+    $(".remove-product").on('click', function() {
+        var pid = $(this).attr('data-id');
+        if (confirm("Are you sure to Remove this Product ?")) {
+            $.post('controller/adminController.php', {
+                pid: pid,
+                removeProduct: 1
+            }, function(data) {
+                if (data) {
+                    window.location.reload();
+                }
+            });
+        }
     });
 
     $(".edit-product").on('click', function() {

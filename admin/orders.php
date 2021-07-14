@@ -1,7 +1,6 @@
 <?php
 
 include '../common/adminHeader.php';
-exit();
 $ord_status = 0;
 $payment_type = 0;
 $dates = '';
@@ -81,6 +80,7 @@ while ($order = mysqli_fetch_array($userData)) {
     Orders
 </h3>
 <br>
+<?php exit(); ?>
 <form method="GET" id="filterForm">
     <div class="row">
         <div class="col-md-3">
