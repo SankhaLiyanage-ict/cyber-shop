@@ -80,7 +80,7 @@ $chartCValues = json_encode($ordTypesSales);
     <div class="container-fluid">
         <h2> Admin Dashboard </h2>
         <br>
-        <?php exit(); ?>
+        
         <!-- Area Chart Example-->
         <div class="card mb-3">
             <div class="card-header">

@@ -22,7 +22,7 @@ while ($usersData = mysqli_fetch_array($userQueryResult)) {
     Customers
 </h3>
 <br>
-<?php exit(); ?>
+
 <table class="table table-bordered">
     <thead>
         <tr class="text-center">

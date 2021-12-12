@@ -86,7 +86,11 @@ while ($order = mysqli_fetch_array($userData)) {
 
 <h3>
     <span id="totalSales" style="float: right; font-size: 24px;"> </span>
-    <?php echo $Orders[0]['firstName'] . ' ' . $Orders[0]['lastName']; ?> - Orders
+    <?php 
+    if ($Orders){
+        echo $Orders[0]['firstName'] . ' ' . $Orders[0]['lastName']; 
+    }
+    ?> - Orders
 </h3>
 <br>
 <form method="GET" id="filterForm">

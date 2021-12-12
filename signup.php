@@ -30,7 +30,7 @@ include 'common/header.php';
             <input type="text" name="firstname" required maxlength="20" class="form-control form-control-lg" value="<?php echo $firstname; ?>">
           </div>
           <div class="form-group mb-10">
-            <label>Second Name</label>
+            <label>Last Name</label>
             <input type="text" name="secondname" required maxlength="20" class="form-control form-control-lg" value="<?php echo $secondname; ?>">
           </div>
           <div class="form-group mb-10">
