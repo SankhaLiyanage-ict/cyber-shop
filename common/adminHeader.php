@@ -1,8 +1,27 @@
 <?php
+
 require_once '../controllers/database.php';
+
 if (!isset($_SESSION['id']) or $_SESSION['role'] != 'ROLE_ADMIN') {
     header('Location: ../index.php');
 }
+
+if (isset($_POST['selected_status']) and isset($_POST['order_id'])) {
+
+    $selected_status = $_POST['selected_status'];
+    $order_id = $_POST['order_id'];
+
+    $query = "UPDATE orders SET status=$selected_status WHERE id=$order_id";
+
+    if ($conn->query($query) == FALSE) {
+        echo "Error" . $sql . $conn->error;
+        exit();
+    }
+
+    echo 1;
+    exit();
+}
+
 ?>
 <html>
 

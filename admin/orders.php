@@ -148,7 +148,11 @@ while ($order = mysqli_fetch_array($userData)) {
                     <td width="150px" class="text-left">
                         <?php
                         if ($prod['status'] == 1) {
-                            echo "<div class='text-success'><i class='ti-bag'></i> Dispatching... </div>";
+                            echo "<div class='text-success'><i class='ti-bag'></i> Order processing. </div>";
+                        } elseif ($prod['status'] == 2) {
+                            echo "<div class='text-success'><i class='ti-truck'></i> Order Shipped. </div>";
+                        } elseif ($prod['status'] == 3) {
+                            echo "<div class='text-success'><i class='ti-check'></i> Order Deliverd. </div>";
                         }
                         ?>
                     </td>
@@ -316,6 +320,23 @@ foreach ($Orders as $order) {
                                             ?>
                                         </td>
                                     </tr>
+                                    <tr>
+                                        <td colspan="2">
+                                            Order Status
+                                        </td>
+                                        <td>
+                                            <select class="form-control update-order-status">
+                                                <option value="1" <?php echo ($order['status'] == 2 or $order['status'] == 3) ? 'disabled' : ''; ?>> Order processing. </option>
+                                                <option value="2" <?php echo ($order['status'] == 3) ? 'disabled' : ''; ?>> Order Shipped. </option>
+                                                <option value="3"> Order Deliverd. </option>
+                                            </select>
+                                        </td>
+                                        <td>
+                                            <button class="btn btn-success col-12 update-status" data-oid="<?php echo $order['id']; ?>">
+                                                Update
+                                            </button>
+                                        </td>
+                                    </tr>
                                 </tbody>
                             </table>
                         </div>
@@ -342,6 +363,20 @@ foreach ($Orders as $order) {
             $("#filterForm").submit();
         });
 
+        $(".update-status").click(function() {
+            var selected_status = $(this).parent().prev('td').find('.update-order-status').val();
+            var order_id = $(this).attr('data-oid');
+
+            $.post(window.location.pathname, {
+                selected_status: selected_status,
+                order_id: order_id
+            }, function(d) {
+                if (d == 1) {
+                    window.location.reload();
+                }
+            });
+
+        });
 
     });
 </script>

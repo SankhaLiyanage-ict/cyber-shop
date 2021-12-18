@@ -68,7 +68,11 @@ while ($order = mysqli_fetch_array($userData)) {
                                                 <td width="200px" class="text-left">
                                                     <?php
                                                     if ($prod['status'] == 1) {
-                                                        echo "<div class='text-success'><i class='ti-bag'></i> Dispatching... </div>";
+                                                        echo "<div class='text-success'><i class='ti-bag'></i> Order processing. </div>";
+                                                    } elseif ($prod['status'] == 2) {
+                                                        echo "<div class='text-success'><i class='ti-truck'></i> Order Shipped. </div>";
+                                                    } elseif ($prod['status'] == 3) {
+                                                        echo "<div class='text-success'><i class='ti-check'></i> Order Deliverd. </div>";
                                                     }
                                                     ?>
                                                 </td>
